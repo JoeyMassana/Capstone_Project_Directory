@@ -1,10 +1,13 @@
 # Import packages
-
 import streamlit as st
 import pandas as pd
 import numpy as np
 
+# Created and merged DataFrames.
+pr_df = pd.read_csv("PerformanceRating.csv")
+emp_df = pd.read_csv("Employee.csv")
+merged_df = pr_df.merge(emp_df, how='outer', on='EmployeeID')
 
-df = pd.read_csv("PerformanceRating.csv")   # Created dataframe df using Employee.csv
-st.write(df)                                # Ran dataframe into Streamlit web app
+# Calculated number of employees with no performance data.
+NullEmployees = merged_df["PerformanceID"].isnull().sum()
 
