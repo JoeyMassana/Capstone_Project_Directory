@@ -5,6 +5,12 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+# Title
+st.title("This is a title")
+
+# Description
+st.write("This is the description of the dataset I am using and some of the initial findings about it.")
+
 # Created and merged DataFrames.
 pr_df = pd.read_csv('PerformanceRating.csv')
 emp_df = pd.read_csv('Employee.csv')
