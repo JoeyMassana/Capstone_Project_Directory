@@ -4,24 +4,6 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Title
-st.title('Analysis of Employee Attrition & Performance')
-
-# Description
-st.write(
-    'This project delves into the trends of employee attrition and '
-    'performance through comprehensive data analysis using a '
-    'pre-generated dataset imported from Kaggle. By exploring '
-    'various factors, including job satisfaction, '
-    'training opportunities, and years since last promotion, '
-    'I gained insights that would be used to guide '
-    'organizations in improving employee retention and '
-    'performance. The analysis will be visualized through '
-    'interactive dashboards, enabling potential stakeholders to '
-    'assess satisfaction levels among employees who have left '
-    'the organization compared to those who have stayed.'
-)
-
 # Created DataFrames
 pr_df = pd.read_csv('PerformanceRating.csv')
 emp_df = pd.read_csv('Employee.csv')
@@ -74,21 +56,43 @@ merged_df.rename(
     inplace=True
 )
 
-
-# Display a dataframe as an interactive table in Streamlit.
-df = st.dataframe(merged_df)
-
 # Calculated number of employees with no performance data.
 NullEmployees = (merged_df['Performance ID']
                  .isnull()
                  .sum())
 
+# Extract years range from Review Date column
+merged_df['year'] = pd.to_datetime(merged_df['Review Date']).dt.year
+
+min_year = int(merged_df['year'].min())
+max_year = int(merged_df['year'].max())
+
+
+# Title
+st.title('Analysis of Employee Attrition & Performance')
+
+# Description
+st.write(
+    'This project delves into the trends of employee attrition and '
+    'performance through data analysis using a '
+    'pre-generated dataset imported from Kaggle ranging '
+    'from ', min_year, 'to', max_year, '. By exploring '
+    'various factors, including job satisfaction, '
+    'training opportunities, and years since last promotion, '
+    'I gained insights that would be used to guide '
+    'organizations in improving employee retention and '
+    'performance. The analysis will be visualized through '
+    'interactive dashboards, enabling potential decision-makers to '
+    'assess satisfaction levels among employees who have left '
+    'the organization compared to those who have stayed.'
+)
+
+# Display a dataframe as an interactive table in Streamlit.
+df = st.dataframe(merged_df)
+
 
 # Title of Section
 st.title('Satisfaction Ratings For Employees')
-
-# Description of findings using the satisfaction levels.
-st.write('Description of findings using the satisfaction levels.')
 
 # Radio button for selecting which column to display
 Ratings = st.radio(
@@ -99,6 +103,13 @@ Ratings = st.radio(
              ],
     index=0  # Default to the first column
 )
+
+# Calculated number of employees with no performance data.
+rating_mean = (merged_df[Ratings].mean())
+rating_med = (merged_df[Ratings].median())
+
+# Description of findings using the satisfaction levels.
+st.write('The mean and median for', Ratings, 'are', rating_mean, 'and', rating_med, 'respectively.')
 
 # Created DataFrame of employees who left
 df_left = merged_df[merged_df['Attrition'] == 'Yes']
@@ -220,3 +231,10 @@ plt.title('Years Since Last Promotion')
 
 # Show the plot
 st.pyplot(plt)
+
+
+# Title of conclusion section
+st.title('Conclusions')
+
+# Description
+st.write('Placeholder')
