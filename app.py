@@ -56,7 +56,7 @@ merged_df.rename(
     inplace=True
 )
 
-# Calculated number of employees with no performance data.
+# Calculated number of employees with no performance data
 NullEmployees = (merged_df['Performance ID']
                  .isnull()
                  .sum())
@@ -104,18 +104,32 @@ Ratings = st.radio(
     index=0  # Default to the first column
 )
 
-# Calculated number of employees with no performance data.
-rating_mean = (merged_df[Ratings].mean())
-rating_med = (merged_df[Ratings].median())
-
-# Description of findings using the satisfaction levels.
-st.write('The mean and median for', Ratings, 'are', rating_mean, 'and', rating_med, 'respectively.')
-
 # Created DataFrame of employees who left
 df_left = merged_df[merged_df['Attrition'] == 'Yes']
 
 # DataFrame of employees who stayed
 df_sty = merged_df[merged_df['Attrition'] == 'No']
+
+# Calculated mean and median of employees who stayed
+rating_mean_sty = (df_sty[Ratings].mean())
+rating_med_sty = (df_sty[Ratings].median())
+
+# Calculated mean and median of employees who left
+rating_mean_lft = (df_left[Ratings].mean())
+rating_med_lft = (df_left[Ratings].median())
+
+# Description of findings using the satisfaction levels
+st.write(
+    ''
+    'The mean and median for', Ratings, 
+    ' for employees who left are', rating_mean_lft, 
+    'and', rating_med_lft, 'respectively.'
+)
+st.write(
+    'The mean and median for', Ratings, 
+    'for employees who stayed are', rating_mean_sty, 
+    'and', rating_med_sty, 'respectively.'
+)
 
 # Create a histogram for the selected column
 fig, ax = plt.subplots(ncols=2)
@@ -127,11 +141,49 @@ ax[0].set_ylabel('Employees')
 ax[0].set_ylim(0, 800)
 ax[0].set_title('Employees Who Left')
 ax[0].tick_params(axis='y', rotation=45)
+ax[0].set_xticks(
+    range(
+        len(
+            ['Unacceptable', 
+             'Needs Improvement', 
+             'Meets Expectation', 
+             'Exceeds Expectation', 
+             'Above and Beyond'
+             ]
+        )
+    )
+)
+ax[0].set_xticklabels(
+    ['Unacceptable', 
+     'Needs Improvement', 
+     'Meets Expectation', 
+     'Exceeds Expectation', 
+     'Above and Beyond'], 
+     rotation=45)
 
 ax[1].set_xlabel('Ratings')
 ax[1].set_ylim(0, 1500)
 ax[1].set_title('Employees Who Stayed')
 ax[1].tick_params(axis='y', rotation=45)
+ax[1].set_xticks(
+    range(
+        len(
+            ['Unacceptable', 
+             'Needs Improvement', 
+             'Meets Expectation', 
+             'Exceeds Expectation', 
+             'Above and Beyond'
+             ]
+        )
+    )
+)
+ax[1].set_xticklabels(
+    ['Unacceptable', 
+     'Needs Improvement', 
+     'Meets Expectation', 
+     'Exceeds Expectation', 
+     'Above and Beyond'], 
+     rotation=45)
 
 # Display the histogram in Streamlit
 st.pyplot(fig)
@@ -139,13 +191,13 @@ plt.show()
 
 
 # Write title for opportunities bar plot
-st.title("Comparison of Training Opportunities Offered vs Taken")
+st.title('Comparison of Training Opportunities Offered vs Taken')
 
 # Description of section
 st.write('Description of section')
 
 # Radio button to toggle between two DataFrames
-option = st.radio("Select DataFrame to display:",
+option = st.radio('Select DataFrame to display:',
                   ('Employees Who Left', 'Employees Who Stayed'),
                   key='dataframe_selection_1')
 
