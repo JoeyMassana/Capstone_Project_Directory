@@ -74,14 +74,14 @@ st.title('Analysis of Employee Attrition & Performance')
 # Description
 st.write(
     'This project delves into the trends of employee attrition and '
-    'performance through data analysis using a '
+    'satisfaction through data analysis using a '
     'pre-generated dataset imported from Kaggle ranging '
     'from ', min_year, 'to', max_year, '. By exploring '
     'various factors, including job satisfaction, '
     'training opportunities, and years since last promotion, '
     'I gained insights that would be used to guide '
-    'organizations in improving employee retention and '
-    'performance. The analysis will be visualized through '
+    'organizations in improving employee retention. '
+    'The analysis will be visualized through '
     'interactive dashboards, enabling potential decision-makers to '
     'assess satisfaction levels among employees who have left '
     'the organization compared to those who have stayed.'
@@ -119,6 +119,8 @@ rating_mean_lft = (df_left[Ratings].mean())
 rating_med_lft = (df_left[Ratings].median())
 
 # Description of findings using the satisfaction levels
+st.write('while not drastic, the environment satisfaction is higher than the other two sataisfaction ratings amongst the employees who left and those who stayed.')
+
 st.write(
     ''
     'The mean and median for', Ratings, 

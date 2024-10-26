@@ -5,15 +5,16 @@ This project provides a comprehensive analysis of employee attrition and perform
 # Features
 - Interactive Dashboards: Visualize and explore employee satisfaction ratings and training opportunities.
 - Data Visualization: Includes histograms and bar plots for a clear understanding of employee performance metrics.
-- Data Analysis: Merges multiple datasets to provide a holistic view of employee performance and attrition.
+- Data Analysis: Data transformation. Merges and reshapes multiple datasets to provide a holistic view of employee attrition and satisfaction levels.
 
 # Requirements
 To run this application, ensure you have the following Python packages installed:
-- streamlit
+- anaconda v. 
+- streamlit v. 
 - pandas
 - seaborn
 - matplotlib
-You can install these packages using pip:
+You can install these packages using pip install v. :
 pip install streamlit pandas seaborn matplotlib
 
 # Dataset
@@ -25,8 +26,8 @@ Make sure to place these CSV files in the same directory as your main script.
 
 # Usage
 1. Clone the repository or download the code files.
-2. Navigate to the directory containing the main script and the CSV files.
-3. Run the Streamlit app using the following command: "streamlit run your_script_name.py"
+2. Navigate to the directory containing the main .py script and the CSV files.
+3. Run the Streamlit app using the following command: "streamlit run app.py"
 4. Open the provided local URL in your web browser to interact with the analysis.
 
 # Key Features in the App
@@ -36,7 +37,7 @@ Make sure to place these CSV files in the same directory as your main script.
 - Years Since Last Promotion Analysis: Histogram illustrating the distribution of years since the last promotion for employees who left or stayed.
 
 # Conclusions
-The application includes a section for conclusions where key findings and insights can be summarized. This section can be modified to include more detailed interpretations based on the analysis results.
+The application includes a section for conclusions where key findings and insights can be summarized. This section can be modified to include more detailed interpretations based on the analysis results. Initial data exploration was conducted in Notebook-1.5.ipynb.
 
 # Future Work
 Potential future enhancements for this project may include:
@@ -46,4 +47,5 @@ Potential future enhancements for this project may include:
 
 # Acknowledgements
 Thanks to the Kaggle community for providing the dataset and to the developers of the libraries used in this project.
+- Dataset name, creator name, year posted, last update, url
 Feel free to reach out if you have any questions or feedback regarding this project!
