@@ -9,12 +9,12 @@ This project provides a comprehensive analysis of employee attrition and perform
 
 # Requirements
 To run this application, ensure you have the following Python packages installed:
-- anaconda v. 
-- streamlit v. 
+- anaconda v3.12.4
+- streamlit v1.32.0
 - pandas
 - seaborn
 - matplotlib
-You can install these packages using pip install v. :
+You can install these packages using pip install v24:
 pip install streamlit pandas seaborn matplotlib
 
 # Dataset
@@ -47,5 +47,5 @@ Potential future enhancements for this project may include:
 
 # Acknowledgements
 Thanks to the Kaggle community for providing the dataset and to the developers of the libraries used in this project.
-- Dataset name, creator name, year posted, last update, url
+- Abdallah, M. E. (2021). HR analytics: Employee attrition and performance [Data set]. Kaggle. https://www.kaggle.com/datasets/mahmoudemadabdallah/hr-analytics-employee-attrition-and-performance
 Feel free to reach out if you have any questions or feedback regarding this project!

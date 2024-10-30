@@ -69,7 +69,7 @@ max_year = int(merged_df['year'].max())
 
 
 # Title
-st.title('Analysis of Employee Attrition & Performance')
+st.title('Analysis of Employee Attrition')
 
 # Description
 st.write(
@@ -119,17 +119,22 @@ rating_mean_lft = (df_left[Ratings].mean())
 rating_med_lft = (df_left[Ratings].median())
 
 # Description of findings using the satisfaction levels
-st.write('while not drastic, the environment satisfaction is higher than the other two sataisfaction ratings amongst the employees who left and those who stayed.')
+st.write(
+    'While not drastic, the environment satisfaction is slightly '
+    'higher than job and relationship satisfaction ratings amongst '
+    'the employees who left and those who stayed. With all three '
+    'skeweing high in satisfaction levels.'
+)
 
 st.write(
     ''
-    'The mean and median for', Ratings, 
-    ' for employees who left are', rating_mean_lft, 
+    'The mean and median for', Ratings,
+    ' for employees who left are', rating_mean_lft,
     'and', rating_med_lft, 'respectively.'
 )
 st.write(
-    'The mean and median for', Ratings, 
-    'for employees who stayed are', rating_mean_sty, 
+    'The mean and median for', Ratings,
+    'for employees who stayed are', rating_mean_sty,
     'and', rating_med_sty, 'respectively.'
 )
 
@@ -146,22 +151,22 @@ ax[0].tick_params(axis='y', rotation=45)
 ax[0].set_xticks(
     range(
         len(
-            ['Unacceptable', 
-             'Needs Improvement', 
-             'Meets Expectation', 
-             'Exceeds Expectation', 
+            ['Unacceptable',
+             'Needs Improvement',
+             'Meets Expectation',
+             'Exceeds Expectation',
              'Above and Beyond'
              ]
         )
     )
 )
 ax[0].set_xticklabels(
-    ['Unacceptable', 
-     'Needs Improvement', 
-     'Meets Expectation', 
-     'Exceeds Expectation', 
-     'Above and Beyond'], 
-     rotation=45)
+    ['Unacceptable',
+     'Needs Improvement',
+     'Meets Expectation',
+     'Exceeds Expectation',
+     'Above and Beyond'], rotation=45
+)
 
 ax[1].set_xlabel('Ratings')
 ax[1].set_ylim(0, 1500)
@@ -170,22 +175,22 @@ ax[1].tick_params(axis='y', rotation=45)
 ax[1].set_xticks(
     range(
         len(
-            ['Unacceptable', 
-             'Needs Improvement', 
-             'Meets Expectation', 
-             'Exceeds Expectation', 
+            ['Unacceptable',
+             'Needs Improvement',
+             'Meets Expectation',
+             'Exceeds Expectation',
              'Above and Beyond'
              ]
         )
     )
 )
 ax[1].set_xticklabels(
-    ['Unacceptable', 
-     'Needs Improvement', 
-     'Meets Expectation', 
-     'Exceeds Expectation', 
-     'Above and Beyond'], 
-     rotation=45)
+    ['Unacceptable',
+     'Needs Improvement',
+     'Meets Expectation',
+     'Exceeds Expectation',
+     'Above and Beyond'], rotation=45
+)
 
 # Display the histogram in Streamlit
 st.pyplot(fig)
@@ -194,9 +199,6 @@ plt.show()
 
 # Write title for opportunities bar plot
 st.title('Comparison of Training Opportunities Offered vs Taken')
-
-# Description of section
-st.write('Description of section')
 
 # Radio button to toggle between two DataFrames
 option = st.radio('Select DataFrame to display:',
@@ -208,6 +210,25 @@ if option == 'Employees Who Left':
     selected_df = df_left
 else:
     selected_df = df_sty
+
+# Percentage of opportunities taken
+opp_per = (
+    selected_df['Training Opportunities Taken'].sum() /
+    selected_df['Training Opportunities Within Year'].sum() *
+    100
+)
+
+# Description of percentage
+st.write(
+    'The percentage of opportunities taken by ', option,
+    'is ', round(opp_per, 2), '.'
+)
+
+# Continuation of description
+st. write(
+    'Similarly, among employees who stayed and those who left, there is no '
+    'significant difference in the number of opportunities offered and taken.'
+)
 
 # Grouping data by department
 grouped_data = (selected_df[
@@ -254,14 +275,20 @@ st.pyplot(plt)
 
 
 # Write title for years before promotion histogram
-st.title("Years Before Promotion of Employees Who Left and Stayed")
+st.title('Years Before Promotion of Employees Who Left and Stayed')
 
 # Description of section
-st.write('Description of section')
+st.write(
+    'The first true trend I found in the dataset was when comparing the years '
+    'before promotion among employees who left and who stayed. Most employees '
+    'who left the company did so within 1 or 2 years after getting promoted. '
+    'While employees who stayed were less likely to leave the longer they '
+    'went without a promotion.'
+)
 
 # Radio button to toggle between two DataFrames with a unique key
 option = st.radio(
-    "Select DataFrame to display:",
+    'Select DataFrame to display:',
     ('Employees Who Left', 'Employees Who Stayed'),
     key='dataframe_selection_2'
 )
@@ -291,4 +318,20 @@ st.pyplot(plt)
 st.title('Conclusions')
 
 # Description
-st.write('Placeholder')
+st.write(
+    'Further analysis is essential to gain deeper insights into employee '
+    'attrition. My next step would involve separating the data of '
+    'employees who left by year and applying additional criteria to '
+    'uncover the characteristics that contribute to their departure. '
+    'Specifically, I aim to identify patterns regarding when employees '
+    'are most likely to leave or stay. I plan to segment the data to '
+    'explore the overlaps between those who left and those who stayed, '
+    'particularly focusing on how long employees remained with the '
+    'company before being promoted. This could reveal potential windows '
+    'of opportunity for offering training and promotions that may help '
+    'reduce turnover rates. To visualize the trends, I will melt the '
+    'data and create three bar graphs to display year-by-year changes. '
+    'These interactive widgets will allow for a more nuanced examination '
+    'of the insights derived from the data, helping to identify specific '
+    'factors that influence employee satisfaction and retention.'
+)
