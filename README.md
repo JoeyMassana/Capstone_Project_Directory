@@ -48,4 +48,5 @@ Potential future enhancements for this project may include:
 # Acknowledgements
 Thanks to the Kaggle community for providing the dataset and to the developers of the libraries used in this project.
 - Abdallah, M. E. (2021). HR analytics: Employee attrition and performance [Data set]. Kaggle. https://www.kaggle.com/datasets/mahmoudemadabdallah/hr-analytics-employee-attrition-and-performance
+
 Feel free to reach out if you have any questions or feedback regarding this project!
