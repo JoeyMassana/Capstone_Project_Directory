@@ -14,8 +14,10 @@ To run this application, ensure you have the following Python packages installed
 - pandas
 - seaborn
 - matplotlib
-You can install these packages using pip install v24:
-pip install streamlit pandas seaborn matplotlib
+Set up a virtual environment and install streamlit
+You can install the package using pip v24. Run the following command:
+```bash
+pip install streamlit
 
 # Dataset
 This project utilizes three CSV files:
@@ -27,7 +29,7 @@ Make sure to place these CSV files in the same directory as your main script.
 # Usage
 1. Clone the repository or download the code files.
 2. Navigate to the directory containing the main .py script and the CSV files.
-3. Run the Streamlit app using the following command: "streamlit run app.py"
+3. Run the Streamlit app using the following command: "streamlit run [local directory]/app.py"
 4. Open the provided local URL in your web browser to interact with the analysis.
 
 # Key Features in the App
@@ -41,9 +43,10 @@ The application includes a section for conclusions where key findings and insigh
 
 # Future Work
 Potential future enhancements for this project may include:
-- Adding more advanced statistical analyses.
-- Incorporating machine learning models for predictive analytics.
-- Expanding visualizations with additional data points.
+- Explore separating the data of employees who left by year and applying additional criteria to uncover the characteristics that contribute to their departure.
+- Identify patterns regarding when employees are most likely to leave or stay.
+- Segment the data to explore the overlaps between those who left and those who stayed, particularly focusing on how long employees remained with the company before being promoted.
+- Melt the data and create three bar graphs to display year-by-year changes. 
 
 # Acknowledgements
 Thanks to the Kaggle community for providing the dataset and to the developers of the libraries used in this project.
