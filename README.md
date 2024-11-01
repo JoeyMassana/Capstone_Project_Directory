@@ -17,7 +17,8 @@ To run this application, ensure you have the following Python packages installed
 Set up a virtual environment and install streamlit
 You can install the package using pip v24. Run the following command:
 ```bash
-pip install streamlit''
+pip install streamlit
+\`\`\`
 
 # Dataset
 This project utilizes three CSV files:
