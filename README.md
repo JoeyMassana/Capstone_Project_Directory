@@ -18,7 +18,7 @@ Set up a virtual environment and install streamlit
 You can install the package using pip v24. Run the following command:
 ```bash
 pip install streamlit
-\`\`\`
+```
 
 # Dataset
 This project utilizes three CSV files:
