@@ -29,7 +29,7 @@ Make sure to place these CSV files in the same directory as your main script.
 
 # Usage
 The cloud app is available at: https://analysis-of-employee-attrition-capstone-project.streamlit.app/
-For a local deployment complete the following:
+For a local deployment, complete the following:
 1. Clone the repository or download the code files.
 2. Navigate to the directory containing the main .py script and the CSV files.
 3. Run the Streamlit app using the following command: "streamlit run [local directory]/app.py"
