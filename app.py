@@ -56,10 +56,6 @@ merged_df.rename(
     inplace=True
 )
 
-# Calculated number of employees with no performance data
-NullEmployees = (merged_df['Performance ID']
-                 .isnull()
-                 .sum())
 
 # Extract years range from Review Date column
 merged_df['year'] = pd.to_datetime(merged_df['Review Date']).dt.year
