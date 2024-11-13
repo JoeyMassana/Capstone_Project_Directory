@@ -90,6 +90,14 @@ df = st.dataframe(merged_df)
 # Title of Section
 st.title('Satisfaction Ratings For Employees')
 
+# Description of findings using the satisfaction levels
+st.write(
+    'While not drastic, the environment satisfaction is slightly '
+    'higher than job and relationship satisfaction ratings amongst '
+    'the employees who left and those who stayed. With all three '
+    'skeweing high in satisfaction levels.'
+)
+
 # Radio button for selecting which column to display
 Ratings = st.radio(
     'Select a column to display:',
@@ -113,14 +121,6 @@ rating_med_sty = (df_sty[Ratings].median())
 # Calculated mean and median of employees who left
 rating_mean_lft = (df_left[Ratings].mean())
 rating_med_lft = (df_left[Ratings].median())
-
-# Description of findings using the satisfaction levels
-st.write(
-    'While not drastic, the environment satisfaction is slightly '
-    'higher than job and relationship satisfaction ratings amongst '
-    'the employees who left and those who stayed. With all three '
-    'skeweing high in satisfaction levels.'
-)
 
 st.write(
     ''
