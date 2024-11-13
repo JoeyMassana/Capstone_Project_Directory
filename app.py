@@ -264,7 +264,6 @@ plt.xlabel('Department')
 plt.ylabel('Count')
 plt.ylim(0, 7000)  # Set y-axis limits
 plt.legend(title='Training Offered vs Taken')
-plt.tight_layout()
 
 # Show the plot
 st.pyplot(plt)
