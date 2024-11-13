@@ -136,8 +136,8 @@ st.write(
 
 # Create a histogram for the selected column
 fig, ax = plt.subplots(ncols=2)
-ax[0].hist(df_left[Ratings], bins=5, color='skyblue', alpha=0.7)
-ax[1].hist(df_sty[Ratings], bins=5, color='skyblue', alpha=0.7)
+ax[0].hist(df_left[Ratings], bins=5, color='skyblue')
+ax[1].hist(df_sty[Ratings], bins=5, color='skyblue')
 
 ax[0].set_xlabel('Ratings')
 ax[0].set_ylabel('Employees')
